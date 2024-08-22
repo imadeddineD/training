@@ -63,6 +63,11 @@ const Recommended = () => {
     <div className=' text-[18px] font-[700] text-[#21272A]'>Filter By</div>
     <IoMdClose onClick={handleClose} size={25}/>
     </div>
+    <div>
+    <div className=' w-full mt-5'>
+                <input type="text" className=' w-[100%] px-[16px] py-3 outline-none bg-[#F2F4F8] border-b-solid border-b-[1px] border-b-[#C1C7CD] ' placeholder='Search For...' />
+    </div>
+    </div>
         <div className=' pt-[24px]'>
             <div className=' text-[#343A3F] text-[16px] font-[400]'>Subject</div>
             <div className=' flex flex-col gap-2 justify-center items-start pt-3'>
