@@ -1,4 +1,5 @@
-"use client"
+'use client'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import React, { useState } from 'react'
 import "../../../globals.css"
 import { IoMdClose } from "react-icons/io";
@@ -12,39 +13,89 @@ const Recommended = () => {
     const handleClose = () => {
         setToggleMenu(false)
     }
+
+    const BUSINESS_FILTERS = {
+        id: 'Business', 
+        name: 'Business',
+        options: [
+          { value: 'subBusiness1', label: 'subBusiness1' },
+          { value: 'subBusiness2', label: 'subBusiness2' },
+          { value: 'subBusiness3', label: 'subBusiness3' },
+          { value: 'subBusiness4', label: 'subBusiness4' },
+          { value: 'subBusiness5', label: 'subBusiness5' },
+        ] as const,
+      }
+    const IT_FILTERS = {
+        id: 'IT',
+        name: 'IT & Data',
+        options: [
+          { value: 'subIT1', label: 'subIT1' },
+          { value: 'subIT2', label: 'subIT2' },
+          { value: 'subIT3', label: 'subIT3' },
+          { value: 'subIT4', label: 'subIT4' },
+          { value: 'subIT5', label: 'subIT5' },
+        ] as const,
+      }
+
+    const SALES_FILTERS = { 
+        id: 'Sales',
+        name: 'Procurement & Sales',
+        options: [
+          { value: 'subSales1', label: 'subSales1' },
+          { value: 'subSales2', label: 'subSales2' },
+          { value: 'subSales3', label: 'subSales3' },
+          { value: 'subSales4', label: 'subSales4' },
+          { value: 'subSales5', label: 'subSales5' },
+        ] as const,
+      }
+
+    const RISK_FILTERS = {
+        id: 'Risk',
+        name: 'Risk & Audit',
+        options: [
+          { value: 'subRisk1', label: 'subRisk1' },
+          { value: 'subRisk2', label: 'subRisk2' },
+          { value: 'subRisk3', label: 'subRisk3' },
+          { value: 'subRisk4', label: 'subRisk4' },
+          { value: 'subRisk5', label: 'subRisk5' },
+        ] as const,
+      }
+      
   return (
     <>
     <div className=' sm:flex hidden gap-2 justify-center items-center py-3'>
-        <div className="section-box cursor-pointer">
-            <input type="checkbox" name='casablanca' id='casablanca' className='hidden peer'/>
-            <label htmlFor="casablanca" className=' px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]'>
-                Casablanca
-            </label>
-        </div>
-        <div className="section-box cursor-pointer">
-            <input type="checkbox" name='Paris' id='Paris' className='hidden peer'/>
-            <label htmlFor="Paris" className=' px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]'>
-                Paris
-            </label>
-        </div>
-        <div className="section-box cursor-pointer">
-            <input type="checkbox" name='Rome' id='Rome' className='hidden peer'/>
-            <label htmlFor="Rome" className=' px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]'>
-                Rome
-            </label>
-        </div>
-        <div className="section-box cursor-pointer">
-            <input type="checkbox" name='Amesterdam' id='Amesterdam' className='hidden peer'/>
-            <label htmlFor="Amesterdam" className=' px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]' >
-                Amesterdam
-            </label>
-        </div>
-        <div className="section-box cursor-pointer">
-            <input type="checkbox" name='London' id='London' className='hidden peer'/>
-            <label htmlFor="London" className=' px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]'>
-                London
-            </label>
-        </div>
+    <div className="section-box cursor-pointer">
+    <input type="radio" name='city' id='London' className='hidden peer' defaultChecked/>
+    <label htmlFor="London" className='px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]'>
+        London
+    </label>
+</div>
+    <div className="section-box cursor-pointer">
+    <input type="radio" name='city' id='casablanca' className='hidden peer'/>
+    <label htmlFor="casablanca" className='px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]'>
+        Casablanca
+    </label>
+</div>
+<div className="section-box cursor-pointer">
+    <input type="radio" name='city' id='Paris' className='hidden peer'/>
+    <label htmlFor="Paris" className='px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]'>
+        Paris
+    </label>
+</div>
+<div className="section-box cursor-pointer">
+    <input type="radio" name='city' id='Rome' className='hidden peer'/>
+    <label htmlFor="Rome" className='px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]'>
+        Rome
+    </label> 
+</div>
+<div className="section-box cursor-pointer">
+    <input type="radio" name='city' id='Amesterdam' className='hidden peer'/>
+    <label htmlFor="Amesterdam" className='px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]'>
+        Amesterdam
+    </label>
+</div>
+
+
     </div> 
 
     <div onClick={handleMenu} className=' sm:hidden ml-2 w-[88px] h-[72px] my-[0px] border-[1px] border-solid border-black flex justify-center items-center gap-2 cursor-pointer'>
@@ -68,27 +119,134 @@ const Recommended = () => {
                 <input type="text" className=' w-[100%] px-[16px] py-3 outline-none bg-[#F2F4F8] border-b-solid border-b-[1px] border-b-[#C1C7CD] ' placeholder='Search For...' />
     </div>
     </div>
-        <div className=' pt-[24px]'>
-            <div className=' text-[#343A3F] text-[16px] font-[400]'>Subject</div>
+    <div className=' pt-[24px]'>
+            <div className=' text-[#343A3F] text-[16px] font-[400]'>Location</div>
             <div className=' flex flex-col gap-2 justify-center items-start pt-3'>
                 <div className=' flex gap-2'>
-                    <input type="checkbox" name="Business" id="Business" className=' outline-none border-[1px] border-solid border-[#121619]' />
-                    <label htmlFor="Business" className=' font-[400] text-[14px] text-[#4D5358]'>Business (1,325)</label>
+                    <input type="radio" name="Location" id="London" className=' outline-none border-[1px] border-solid border-[#121619]' checked />
+                    <label htmlFor="London" className=' font-[400] text-[14px] text-[#4D5358]'>London (1,325)</label>
                 </div>
                 <div className=' flex gap-2'>
-                    <input type="checkbox" name="IT & Data" id="IT & Data" className=' outline-none border-[1px] border-solid border-[#121619]' />
-                    <label htmlFor="IT & Data" className=' font-[400] text-[14px] text-[#4D5358]'>IT & Data (1,658)</label>
+                    <input type="radio" name="Location" id="Paris" className=' outline-none border-[1px] border-solid border-[#121619]' />
+                    <label htmlFor="Paris" className=' font-[400] text-[14px] text-[#4D5358]'>Paris (1,658)</label>
                 </div>
                 <div className=' flex gap-2'>
-                    <input type="checkbox" name="Procurement & Sales" id="Procurement & Sales" className=' outline-none border-[1px] border-solid border-[#121619]' />
-                    <label htmlFor="Procurement & Sales" className=' font-[400] text-[14px] text-[#4D5358]'>Procurement & Sales (1,658)</label>
+                    <input type="radio" name="Location" id="Casablanca" className=' outline-none border-[1px] border-solid border-[#121619]' />
+                    <label htmlFor="Casablanca" className=' font-[400] text-[14px] text-[#4D5358]'>Casablanca (1,658)</label>
                 </div>
                 <div className=' flex gap-2'>
-                    <input type="checkbox" name="Risk & Audit" id="Risk & Audit" className=' outline-none border-[1px] border-solid border-[#121619]' />
-                    <label htmlFor="Risk & Audit" className=' font-[400] text-[14px] text-[#4D5358]'>Risk & Audit (1.321)</label>
+                    <input type="radio" name="Location" id="Rome" className=' outline-none border-[1px] border-solid border-[#121619]' />
+                    <label htmlFor="Rome" className=' font-[400] text-[14px] text-[#4D5358]'>Rome (1.321)</label>
                 </div>
                 <div className=' text-[12px] font-[400] text-[#21272A] underline cursor-pointer'>Show more</div>
                 
+            </div>
+        </div>
+        <div className=' pt-[24px]'>
+            <div className=' text-[#343A3F] text-[16px] font-[400]'>Subject</div>
+            <div className=' flex flex-col gap-2 justify-center items-start pt-3'>
+            <Accordion type="multiple" className='w-full'>
+                    <AccordionItem value='business'>
+                        <AccordionTrigger className='py-3 text-sm text-gray-400 hover:text-gray-500'>
+                            <span className='font-medium text-gray-900'>{BUSINESS_FILTERS.name}</span>
+                        </AccordionTrigger>
+                        <AccordionContent className='pt-6 animate-none'>
+                            <ul className='space-y-4'>
+                                {BUSINESS_FILTERS.options.map((option, optionIdx) => (
+                                    <li key={option.value} className='flex items-center'>
+                                        <input
+                                            type='checkbox'
+                                            id={`business-${optionIdx}`}
+                                            className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+                                        />
+                                        <label
+                                            htmlFor={`business-${optionIdx}`}
+                                            className='ml-3 text-sm text-gray-600'>
+                                            {option.label}
+                                        </label>
+                                    </li>
+                                ))}
+                            </ul>
+                        </AccordionContent>
+                    </AccordionItem>
+
+                    {/* IT Filters */}
+                    <AccordionItem value='it'>
+                        <AccordionTrigger className='py-3 text-sm text-gray-400 hover:text-gray-500'>
+                            <span className='font-medium text-gray-900'>{IT_FILTERS.name}</span>
+                        </AccordionTrigger>
+                        <AccordionContent className='pt-6 animate-none'>
+                            <ul className='space-y-4'>
+                                {IT_FILTERS.options.map((option, optionIdx) => (
+                                    <li key={option.value} className='flex items-center'>
+                                        <input
+                                            type='checkbox'
+                                            id={`it-${optionIdx}`}
+                                            className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+                                        />
+                                        <label
+                                            htmlFor={`it-${optionIdx}`}
+                                            className='ml-3 text-sm text-gray-600'>
+                                            {option.label}
+                                        </label>
+                                    </li>
+                                ))}
+                            </ul>
+                        </AccordionContent>
+                    </AccordionItem>
+
+                    {/* Sales Filters */}
+                    <AccordionItem value='sales'>
+                        <AccordionTrigger className='py-3 text-sm text-gray-400 hover:text-gray-500'>
+                            <span className='font-medium text-gray-900'>{SALES_FILTERS.name}</span>
+                        </AccordionTrigger>
+                        <AccordionContent className='pt-6 animate-none'>
+                            <ul className='space-y-4'>
+                                {SALES_FILTERS.options.map((option, optionIdx) => (
+                                    <li key={option.value} className='flex items-center'>
+                                        <input
+                                            type='checkbox'
+                                            id={`sales-${optionIdx}`}
+                                            className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+                                        />
+                                        <label
+                                            htmlFor={`sales-${optionIdx}`}
+                                            className='ml-3 text-sm text-gray-600'>
+                                            {option.label}
+                                        </label>
+                                    </li>
+                                ))}
+                            </ul>
+                        </AccordionContent>
+                    </AccordionItem>
+
+                    {/* Risk Filters */}
+                    <AccordionItem value='risk'>
+                        <AccordionTrigger className='py-3 text-sm text-gray-400 hover:text-gray-500'>
+                            <span className='font-medium text-gray-900'>{RISK_FILTERS.name}</span>
+                        </AccordionTrigger>
+                        <AccordionContent className='pt-6 animate-none'>
+                            <ul className='space-y-4'>
+                                {RISK_FILTERS.options.map((option, optionIdx) => (
+                                    <li key={option.value} className='flex items-center'>
+                                        <input
+                                            type='checkbox'
+                                            id={`risk-${optionIdx}`}
+                                            className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+                                        />
+                                        <label
+                                            htmlFor={`risk-${optionIdx}`}
+                                            className='ml-3 text-sm text-gray-600'>
+                                            {option.label}
+                                        </label>
+                                    </li>
+                                ))}
+                            </ul>
+                        </AccordionContent>
+                    </AccordionItem>
+
+                    
+                </Accordion>
             </div>
         </div>
         <div className=' pt-[24px]'>
@@ -114,29 +272,24 @@ const Recommended = () => {
                 
             </div>
         </div>
-        <div className=' pt-[24px]'>
-            <div className=' text-[#343A3F] text-[16px] font-[400]'>Location</div>
-            <div className=' flex flex-col gap-2 justify-center items-start pt-3'>
-                <div className=' flex gap-2'>
-                    <input type="checkbox" name="London" id="London" className=' outline-none border-[1px] border-solid border-[#121619]' />
-                    <label htmlFor="London" className=' font-[400] text-[14px] text-[#4D5358]'>London (1,325)</label>
-                </div>
-                <div className=' flex gap-2'>
-                    <input type="checkbox" name="Paris" id="Paris" className=' outline-none border-[1px] border-solid border-[#121619]' />
-                    <label htmlFor="Paris" className=' font-[400] text-[14px] text-[#4D5358]'>Paris (1,658)</label>
-                </div>
-                <div className=' flex gap-2'>
-                    <input type="checkbox" name="Casablanca" id="Casablanca" className=' outline-none border-[1px] border-solid border-[#121619]' />
-                    <label htmlFor="Casablanca" className=' font-[400] text-[14px] text-[#4D5358]'>Casablanca (1,658)</label>
-                </div>
-                <div className=' flex gap-2'>
-                    <input type="checkbox" name="Rome" id="Rome" className=' outline-none border-[1px] border-solid border-[#121619]' />
-                    <label htmlFor="Rome" className=' font-[400] text-[14px] text-[#4D5358]'>Rome (1.321)</label>
-                </div>
-                <div className=' text-[12px] font-[400] text-[#21272A] underline cursor-pointer'>Show more</div>
-                
-            </div>
+        
+        <div className='pt-[24px]'>
+    <div className='text-[#343A3F] text-[16px] font-[400]'>Duration</div>
+    <div className='flex flex-col gap-2 justify-center items-start pt-3'>
+        <div className='flex gap-2'>
+            <input type="radio" name="duration" id="all" className='outline-none border-[1px] border-solid border-[#121619]' checked/>
+            <label htmlFor="all" className='font-[400] text-[14px] text-[#4D5358]'>All</label>
         </div>
+        <div className='flex gap-2'>
+            <input type="radio" name="duration" id="one-week" className='outline-none border-[1px] border-solid border-[#121619]' />
+            <label htmlFor="one-week" className='font-[400] text-[14px] text-[#4D5358]'>One Week</label>
+        </div>
+        <div className='flex gap-2'>
+            <input type="radio" name="duration" id="two-weeks" className='outline-none border-[1px] border-solid border-[#121619]' />
+            <label htmlFor="two-weeks" className='font-[400] text-[14px] text-[#4D5358]'>Two Weeks</label>
+        </div>
+    </div>
+</div>
     </div>
     </>
   )
