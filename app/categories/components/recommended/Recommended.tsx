@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import "../../../globals.css"
 import { IoMdClose } from "react-icons/io";
 
-const Recommended = () => {
+const Recommended = ({handleClick , handleChange} : any) => {
     const [toggleMenu,setToggleMenu] = useState(false)
 
     const handleMenu = () => {
@@ -65,31 +65,37 @@ const Recommended = () => {
     <>
     <div className=' sm:flex hidden gap-2 justify-center items-center py-3'>
     <div className="section-box cursor-pointer">
-    <input type="radio" name='city' id='London' className='hidden peer' defaultChecked/>
+    <input type="radio" name='location' value="" onChange={handleClick} id='All' className='hidden peer' defaultChecked/>
+    <label htmlFor="All" className='px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]'>
+        All
+    </label>
+</div>
+    <div className="section-box cursor-pointer">
+    <input type="radio" name='location' value="London" onChange={handleClick} id='London' className='hidden peer'/>
     <label htmlFor="London" className='px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]'>
         London
     </label>
 </div>
     <div className="section-box cursor-pointer">
-    <input type="radio" name='city' id='casablanca' className='hidden peer'/>
+    <input type="radio" name='location' value="Casablanca" onChange={handleClick} id='casablanca' className='hidden peer'/>
     <label htmlFor="casablanca" className='px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]'>
         Casablanca
     </label>
 </div>
 <div className="section-box cursor-pointer">
-    <input type="radio" name='city' id='Paris' className='hidden peer'/>
+    <input type="radio" name='location' value="Paris" onChange={handleClick}  id='Paris' className='hidden peer'/>
     <label htmlFor="Paris" className='px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]'>
         Paris
     </label>
 </div>
 <div className="section-box cursor-pointer">
-    <input type="radio" name='city' id='Rome' className='hidden peer'/>
+    <input type="radio" name='location' value="Rome" onChange={handleClick} id='Rome' className='hidden peer'/>
     <label htmlFor="Rome" className='px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]'>
         Rome
     </label> 
 </div>
 <div className="section-box cursor-pointer">
-    <input type="radio" name='city' id='Amesterdam' className='hidden peer'/>
+    <input type="radio" name='location' value="Amesterdam" onChange={handleClick} id='Amesterdam' className='hidden peer'/>
     <label htmlFor="Amesterdam" className='px-[16px] py-[4px] peer-checked:bg-white peer-checked:border-[1px] peer-checked:border-solid peer-checked:border-[#C1C7CD]'>
         Amesterdam
     </label>
@@ -123,22 +129,29 @@ const Recommended = () => {
             <div className=' text-[#343A3F] text-[16px] font-[400]'>Location</div>
             <div className=' flex flex-col gap-2 justify-center items-start pt-3'>
                 <div className=' flex gap-2'>
-                    <input type="radio" name="Location" id="London" className=' outline-none border-[1px] border-solid border-[#121619]' checked />
-                    <label htmlFor="London" className=' font-[400] text-[14px] text-[#4D5358]'>London (1,325)</label>
+                    <input type="radio" name="location" id="All" value="" onChange={handleChange} className=' outline-none border-[1px] border-solid border-[#121619]'  />
+                    <label htmlFor="All" className=' font-[400] text-[14px] text-[#4D5358]'>All</label>
                 </div>
                 <div className=' flex gap-2'>
-                    <input type="radio" name="Location" id="Paris" className=' outline-none border-[1px] border-solid border-[#121619]' />
-                    <label htmlFor="Paris" className=' font-[400] text-[14px] text-[#4D5358]'>Paris (1,658)</label>
+                    <input type="radio" name="location" id="London" value="London" onChange={handleChange} className=' outline-none border-[1px] border-solid border-[#121619]' />
+                    <label htmlFor="London" className=' font-[400] text-[14px] text-[#4D5358]'>London</label>
                 </div>
                 <div className=' flex gap-2'>
-                    <input type="radio" name="Location" id="Casablanca" className=' outline-none border-[1px] border-solid border-[#121619]' />
-                    <label htmlFor="Casablanca" className=' font-[400] text-[14px] text-[#4D5358]'>Casablanca (1,658)</label>
+                    <input type="radio" name="location" id="Paris" value="Paris" onChange={handleChange} className=' outline-none border-[1px] border-solid border-[#121619]' />
+                    <label htmlFor="Paris" className=' font-[400] text-[14px] text-[#4D5358]'>Paris </label>
                 </div>
                 <div className=' flex gap-2'>
-                    <input type="radio" name="Location" id="Rome" className=' outline-none border-[1px] border-solid border-[#121619]' />
-                    <label htmlFor="Rome" className=' font-[400] text-[14px] text-[#4D5358]'>Rome (1.321)</label>
+                    <input type="radio" name="location" id="Casablanca" value="Casablanca" onChange={handleChange} className=' outline-none border-[1px] border-solid border-[#121619]' />
+                    <label htmlFor="Casablanca" className=' font-[400] text-[14px] text-[#4D5358]'>Casablanca </label>
                 </div>
-                <div className=' text-[12px] font-[400] text-[#21272A] underline cursor-pointer'>Show more</div>
+                <div className=' flex gap-2'>
+                    <input type="radio" name="location" id="Rome" value="Rome" onChange={handleChange} className=' outline-none border-[1px] border-solid border-[#121619]' />
+                    <label htmlFor="Rome" className=' font-[400] text-[14px] text-[#4D5358]'>Rome </label>
+                </div>
+                <div className=' flex gap-2'>
+                    <input type="radio" name="location" id="Amesterdam" value="Amesterdam" onChange={handleChange} className=' outline-none border-[1px] border-solid border-[#121619]' />
+                    <label htmlFor="Amesterdam" className=' font-[400] text-[14px] text-[#4D5358]'>Amesterdam </label>
+                </div>
                 
             </div>
         </div>
@@ -152,10 +165,30 @@ const Recommended = () => {
                         </AccordionTrigger>
                         <AccordionContent className='pt-6 animate-none'>
                             <ul className='space-y-4'>
+                            <label className="sidebar-label-container">
+                            <li  className='flex items-center'>
+                                <input
+                                    name='category'
+                                    type='radio'
+                                    value=""
+                                    onChange={handleChange}
+                                    id={`business`}
+                                    className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+                                 />
+                                <label
+                                    htmlFor={`business`}
+                                    className='ml-3 text-sm text-gray-600'>
+                                    All
+                            </label>
+                            </li>
+                            </label>
                                 {BUSINESS_FILTERS.options.map((option, optionIdx) => (
                                     <li key={option.value} className='flex items-center'>
                                         <input
-                                            type='checkbox'
+                                            name='category'
+                                            type='radio'
+                                            value={option.value}
+                                            onChange={handleChange}
                                             id={`business-${optionIdx}`}
                                             className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
                                         />
@@ -177,15 +210,35 @@ const Recommended = () => {
                         </AccordionTrigger>
                         <AccordionContent className='pt-6 animate-none'>
                             <ul className='space-y-4'>
+                            <label className="sidebar-label-container">
+                            <li  className='flex items-center'>
+                                <input
+                                    name='category'
+                                    type='radio'
+                                    value=""
+                                    onChange={handleChange}
+                                    id={`business`}
+                                    className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+                                 />
+                                <label
+                                    htmlFor={`business`}
+                                    className='ml-3 text-sm text-gray-600'>
+                                    All
+                            </label>
+                            </li>
+                            </label>
                                 {IT_FILTERS.options.map((option, optionIdx) => (
                                     <li key={option.value} className='flex items-center'>
                                         <input
-                                            type='checkbox'
-                                            id={`it-${optionIdx}`}
+                                            name='category'
+                                            type='radio'
+                                            value={option.value}
+                                            onChange={handleChange}
+                                            id={`business-${optionIdx}`}
                                             className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
                                         />
                                         <label
-                                            htmlFor={`it-${optionIdx}`}
+                                            htmlFor={`business-${optionIdx}`}
                                             className='ml-3 text-sm text-gray-600'>
                                             {option.label}
                                         </label>
@@ -202,15 +255,35 @@ const Recommended = () => {
                         </AccordionTrigger>
                         <AccordionContent className='pt-6 animate-none'>
                             <ul className='space-y-4'>
+                            <label className="sidebar-label-container">
+                            <li  className='flex items-center'>
+                                <input
+                                    name='category'
+                                    type='radio'
+                                    value=""
+                                    onChange={handleChange}
+                                    id={`business`}
+                                    className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+                                 />
+                                <label
+                                    htmlFor={`business`}
+                                    className='ml-3 text-sm text-gray-600'>
+                                    All
+                            </label>
+                            </li>
+                            </label>
                                 {SALES_FILTERS.options.map((option, optionIdx) => (
                                     <li key={option.value} className='flex items-center'>
-                                        <input
-                                            type='checkbox'
-                                            id={`sales-${optionIdx}`}
+                                         <input
+                                            name='category'
+                                            type='radio'
+                                            value={option.value}
+                                            onChange={handleChange}
+                                            id={`business-${optionIdx}`}
                                             className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
                                         />
                                         <label
-                                            htmlFor={`sales-${optionIdx}`}
+                                            htmlFor={`business-${optionIdx}`}
                                             className='ml-3 text-sm text-gray-600'>
                                             {option.label}
                                         </label>
@@ -227,15 +300,35 @@ const Recommended = () => {
                         </AccordionTrigger>
                         <AccordionContent className='pt-6 animate-none'>
                             <ul className='space-y-4'>
+                            <label className="sidebar-label-container">
+                            <li  className='flex items-center'>
+                                <input
+                                    name='category'
+                                    type='radio'
+                                    value=""
+                                    onChange={handleChange}
+                                    id={`business`}
+                                    className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+                                 />
+                                <label
+                                    htmlFor={`business`}
+                                    className='ml-3 text-sm text-gray-600'>
+                                    All
+                            </label>
+                            </li>
+                            </label>
                                 {RISK_FILTERS.options.map((option, optionIdx) => (
                                     <li key={option.value} className='flex items-center'>
-                                        <input
-                                            type='checkbox'
-                                            id={`risk-${optionIdx}`}
+                                         <input
+                                            name='category'
+                                            type='radio'
+                                            value={option.value}
+                                            onChange={handleChange}
+                                            id={`business-${optionIdx}`}
                                             className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
                                         />
                                         <label
-                                            htmlFor={`risk-${optionIdx}`}
+                                            htmlFor={`business-${optionIdx}`}
                                             className='ml-3 text-sm text-gray-600'>
                                             {option.label}
                                         </label>
@@ -249,47 +342,48 @@ const Recommended = () => {
                 </Accordion>
             </div>
         </div>
-        <div className=' pt-[24px]'>
-            <div className=' text-[#343A3F] text-[16px] font-[400]'>Category</div>
-            <div className=' flex flex-col gap-2 justify-center items-start pt-3'>
-                <div className=' flex gap-2'>
-                    <input type="checkbox" name="Media" id="Media" className=' outline-none border-[1px] border-solid border-[#121619]' />
-                    <label htmlFor="Media" className=' font-[400] text-[14px] text-[#4D5358]'>Media (1,325)</label>
-                </div>
-                <div className=' flex gap-2'>
-                    <input type="checkbox" name="Design" id="Design" className=' outline-none border-[1px] border-solid border-[#121619]' />
-                    <label htmlFor="Design" className=' font-[400] text-[14px] text-[#4D5358]'>Design (1,658)</label>
-                </div>
-                <div className=' flex gap-2'>
-                    <input type="checkbox" name="UX Design" id="UX Design" className=' outline-none border-[1px] border-solid border-[#121619]' />
-                    <label htmlFor="UX Design" className=' font-[400] text-[14px] text-[#4D5358]'>UX Design (1,658)</label>
-                </div>
-                <div className=' flex gap-2'>
-                    <input type="checkbox" name="Front End" id="Front End" className=' outline-none border-[1px] border-solid border-[#121619]' />
-                    <label htmlFor="Front End" className=' font-[400] text-[14px] text-[#4D5358]'>Front End (1.321)</label>
-                </div>
-                <div className=' text-[12px] font-[400] text-[#21272A] underline cursor-pointer'>Show more</div>
-                
-            </div>
-        </div>
+       
         
         <div className='pt-[24px]'>
-    <div className='text-[#343A3F] text-[16px] font-[400]'>Duration</div>
-    <div className='flex flex-col gap-2 justify-center items-start pt-3'>
-        <div className='flex gap-2'>
-            <input type="radio" name="duration" id="all" className='outline-none border-[1px] border-solid border-[#121619]' checked/>
-            <label htmlFor="all" className='font-[400] text-[14px] text-[#4D5358]'>All</label>
-        </div>
-        <div className='flex gap-2'>
-            <input type="radio" name="duration" id="one-week" className='outline-none border-[1px] border-solid border-[#121619]' />
-            <label htmlFor="one-week" className='font-[400] text-[14px] text-[#4D5358]'>One Week</label>
-        </div>
-        <div className='flex gap-2'>
-            <input type="radio" name="duration" id="two-weeks" className='outline-none border-[1px] border-solid border-[#121619]' />
-            <label htmlFor="two-weeks" className='font-[400] text-[14px] text-[#4D5358]'>Two Weeks</label>
-        </div>
+  <div className='text-[#343A3F] text-[16px] font-[400]'>Duration</div>
+  <div className='flex flex-col gap-2 justify-center items-start pt-3'>
+    <div className='flex gap-2'>
+      <input
+        type="radio"
+        name="duration"
+        value=""
+        onChange={handleChange}
+        id="duration-all"
+        className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+      />
+      <label htmlFor="duration-all" className='font-[400] text-[14px] text-[#4D5358]'>All</label>
     </div>
+    <div className='flex gap-2'>
+      <input
+        type="radio"
+        name="duration"
+        value="1 week"
+        onChange={handleChange}
+        id="duration-one-week"
+        className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+      />
+      <label htmlFor="duration-one-week" className='font-[400] text-[14px] text-[#4D5358]'>One Week</label>
+    </div>
+    <div className='flex gap-2'>
+      <input
+        type="radio"
+        name="duration"
+        value="2 week"
+        onChange={handleChange}
+        id="duration-two-weeks"
+        className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+      />
+      <label htmlFor="duration-two-weeks" className='font-[400] text-[14px] text-[#4D5358]'>Two Weeks</label>
+    </div>
+  </div>
 </div>
+
+
     </div>
     </>
   )

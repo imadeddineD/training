@@ -2,7 +2,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import React from 'react'
 
-const Sidebar = () => {
+const Sidebar = ({handleChange} : any) => {
     const BUSINESS_FILTERS = {
         id: 'Business',
         name: 'Business',
@@ -64,10 +64,30 @@ const Sidebar = () => {
                         </AccordionTrigger>
                         <AccordionContent className='pt-6 animate-none'>
                             <ul className='space-y-4'>
+                            <label className="sidebar-label-container">
+                            <li  className='flex items-center'>
+                                <input
+                                    name='category'
+                                    type='radio'
+                                    value=""
+                                    onChange={handleChange}
+                                    id={`business`}
+                                    className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+                                 />
+                                <label
+                                    htmlFor={`business`}
+                                    className='ml-3 text-sm text-gray-600'>
+                                    All
+                            </label>
+                            </li>
+                            </label>
                                 {BUSINESS_FILTERS.options.map((option, optionIdx) => (
                                     <li key={option.value} className='flex items-center'>
                                         <input
-                                            type='checkbox'
+                                            name='category'
+                                            type='radio'
+                                            value={option.value}
+                                            onChange={handleChange}
                                             id={`business-${optionIdx}`}
                                             className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
                                         />
@@ -89,15 +109,35 @@ const Sidebar = () => {
                         </AccordionTrigger>
                         <AccordionContent className='pt-6 animate-none'>
                             <ul className='space-y-4'>
+                            <label className="sidebar-label-container">
+                            <li  className='flex items-center'>
+                                <input
+                                    name='category'
+                                    type='radio'
+                                    value=""
+                                    onChange={handleChange}
+                                    id={`business`}
+                                    className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+                                 />
+                                <label
+                                    htmlFor={`business`}
+                                    className='ml-3 text-sm text-gray-600'>
+                                    All
+                            </label>
+                            </li>
+                            </label>
                                 {IT_FILTERS.options.map((option, optionIdx) => (
                                     <li key={option.value} className='flex items-center'>
                                         <input
-                                            type='checkbox'
-                                            id={`it-${optionIdx}`}
+                                            name='category'
+                                            type='radio'
+                                            value={option.value}
+                                            onChange={handleChange}
+                                            id={`business-${optionIdx}`}
                                             className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
                                         />
                                         <label
-                                            htmlFor={`it-${optionIdx}`}
+                                            htmlFor={`business-${optionIdx}`}
                                             className='ml-3 text-sm text-gray-600'>
                                             {option.label}
                                         </label>
@@ -114,15 +154,35 @@ const Sidebar = () => {
                         </AccordionTrigger>
                         <AccordionContent className='pt-6 animate-none'>
                             <ul className='space-y-4'>
+                            <label className="sidebar-label-container">
+                            <li  className='flex items-center'>
+                                <input
+                                    name='category'
+                                    type='radio'
+                                    value=""
+                                    onChange={handleChange}
+                                    id={`business`}
+                                    className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+                                 />
+                                <label
+                                    htmlFor={`business`}
+                                    className='ml-3 text-sm text-gray-600'>
+                                    All
+                            </label>
+                            </li>
+                            </label>
                                 {SALES_FILTERS.options.map((option, optionIdx) => (
                                     <li key={option.value} className='flex items-center'>
-                                        <input
-                                            type='checkbox'
-                                            id={`sales-${optionIdx}`}
+                                         <input
+                                            name='category'
+                                            type='radio'
+                                            value={option.value}
+                                            onChange={handleChange}
+                                            id={`business-${optionIdx}`}
                                             className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
                                         />
                                         <label
-                                            htmlFor={`sales-${optionIdx}`}
+                                            htmlFor={`business-${optionIdx}`}
                                             className='ml-3 text-sm text-gray-600'>
                                             {option.label}
                                         </label>
@@ -139,15 +199,35 @@ const Sidebar = () => {
                         </AccordionTrigger>
                         <AccordionContent className='pt-6 animate-none'>
                             <ul className='space-y-4'>
+                            <label className="sidebar-label-container">
+                            <li  className='flex items-center'>
+                                <input
+                                    name='category'
+                                    type='radio'
+                                    value=""
+                                    onChange={handleChange}
+                                    id={`business`}
+                                    className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+                                 />
+                                <label
+                                    htmlFor={`business`}
+                                    className='ml-3 text-sm text-gray-600'>
+                                    All
+                            </label>
+                            </li>
+                            </label>
                                 {RISK_FILTERS.options.map((option, optionIdx) => (
                                     <li key={option.value} className='flex items-center'>
-                                        <input
-                                            type='checkbox'
-                                            id={`risk-${optionIdx}`}
+                                         <input
+                                            name='category'
+                                            type='radio'
+                                            value={option.value}
+                                            onChange={handleChange}
+                                            id={`business-${optionIdx}`}
                                             className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
                                         />
                                         <label
-                                            htmlFor={`risk-${optionIdx}`}
+                                            htmlFor={`business-${optionIdx}`}
                                             className='ml-3 text-sm text-gray-600'>
                                             {option.label}
                                         </label>
@@ -168,24 +248,47 @@ const Sidebar = () => {
             </div>
         </div>
        
-        
         <div className='pt-[24px]'>
-    <div className='text-[#343A3F] text-[16px] font-[400]'>Duration</div>
-    <div className='flex flex-col gap-2 justify-center items-start pt-3'>
-        <div className='flex gap-2'>
-            <input type="radio" name="duration" id="all" className='outline-none border-[1px] border-solid border-[#121619]' checked/>
-            <label htmlFor="all" className='font-[400] text-[14px] text-[#4D5358]'>All</label>
-        </div>
-        <div className='flex gap-2'>
-            <input type="radio" name="duration" id="one-week" className='outline-none border-[1px] border-solid border-[#121619]' />
-            <label htmlFor="one-week" className='font-[400] text-[14px] text-[#4D5358]'>One Week</label>
-        </div>
-        <div className='flex gap-2'>
-            <input type="radio" name="duration" id="two-weeks" className='outline-none border-[1px] border-solid border-[#121619]' />
-            <label htmlFor="two-weeks" className='font-[400] text-[14px] text-[#4D5358]'>Two Weeks</label>
-        </div>
+  <div className='text-[#343A3F] text-[16px] font-[400]'>Duration</div>
+  <div className='flex flex-col gap-2 justify-center items-start pt-3'>
+    <div className='flex gap-2'>
+      <input
+        type="radio"
+        name="duration"
+        value=""
+        onChange={handleChange}
+        id="duration-all"
+        className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+      />
+      <label htmlFor="duration-all" className='font-[400] text-[14px] text-[#4D5358]'>All</label>
     </div>
+    <div className='flex gap-2'>
+      <input
+        type="radio"
+        name="duration"
+        value="1 week"
+        onChange={handleChange}
+        id="duration-one-week"
+        className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+      />
+      <label htmlFor="duration-one-week" className='font-[400] text-[14px] text-[#4D5358]'>One Week</label>
+    </div>
+    <div className='flex gap-2'>
+      <input
+        type="radio"
+        name="duration"
+        value="2 week"
+        onChange={handleChange}
+        id="duration-two-weeks"
+        className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+      />
+      <label htmlFor="duration-two-weeks" className='font-[400] text-[14px] text-[#4D5358]'>Two Weeks</label>
+    </div>
+  </div>
 </div>
+  
+       
+
 
     </div>
     </>
