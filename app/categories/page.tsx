@@ -12,7 +12,7 @@ import Image from 'next/image'
 
 const inter = Roboto({ subsets: ["latin"] ,weight:["100","300" ,"400","500","700","900"]});
 
-const page = () => {
+const Page = () => {
 
   const data : any = [
     {
@@ -236,4 +236,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
