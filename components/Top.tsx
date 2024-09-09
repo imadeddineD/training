@@ -2,7 +2,7 @@ import React from 'react'
 import Container from './Container'
 
 interface top {
-    label : string
+    label : string,
 }
 
 const Top = ({label} : top) => {

@@ -8,6 +8,7 @@ import Products from './components/products/Products'
 import { Roboto } from 'next/font/google'
 import image from '../../public/course.jpeg'
 import Image from 'next/image'
+import Link from 'next/link'
 
 
 const inter = Roboto({ subsets: ["latin"] ,weight:["100","300" ,"400","500","700","900"]});
@@ -183,6 +184,7 @@ const Page = () => {
 
     return filteredProducts.map(
       (item:any) => (
+        <Link href={`/categories/${item.id}`} className='w-[100%] inline-block'>
         <div key={item.id} className='w-full rounded-[16px] bg-[white] flex justify-center items-center gap-4 p-3 md:h-[185px] h-[185px] sm:h-[210px]'>
               <Image
                 src={item.img}
@@ -208,6 +210,7 @@ const Page = () => {
                 <div className='text-[16px] font-[500]'>${item.price}</div>
               </div>
             </div>
+            </Link>
       )
     );
   }

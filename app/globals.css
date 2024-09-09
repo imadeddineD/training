@@ -851,3 +851,49 @@
     grid-auto-columns: 100%;
   }
 }
+
+.myShad {
+  box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.cont1 {
+  display: grid;
+  grid-template-areas: "a a" "b c" "d e";
+  gap: 18px;
+}
+.cont1 > div {
+  display: flex;
+  
+}
+.one1 {
+  grid-area: a;
+}
+.two2 {
+  grid-area: b;
+}
+.three3 {
+  grid-area: c;
+}
+.four4 {
+  grid-area: d;
+}
+.five5 {
+  grid-area: e;
+}
+
+@media (max-width : 1015px) {
+  .cont1 {
+    display: grid;
+    grid-template-areas: "a a" "b b" "c c" "d d" "e e";
+    gap: 18px;
+  }
+}
+@media (max-width : 820px) {
+  .cont1 > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
