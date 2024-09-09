@@ -13,7 +13,7 @@ import paris from "@/public/paris.png"
 import rome from "@/public/rome.png"
 const inter = Tinos({ subsets: ["latin"] , weight:['400','700']});
 
-const page = ({params} : any) => {
+const Page = ({params} : any) => {
     const [progress, setProgress] = useState({
         orgPlanning: 0,
         businessExcellence: 0,
@@ -268,7 +268,7 @@ const page = ({params} : any) => {
   )
 }
 
-export default page
+export default Page
 
 
 function ProgressBar({ label, progress, color }: any) {

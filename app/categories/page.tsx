@@ -182,9 +182,8 @@ const Page = () => {
       );
     }
 
-    return filteredProducts.map(
-      (item:any) => (
-        <Link href={`/categories/${item.id}`} className='w-[100%] inline-block'>
+    return filteredProducts.map((item: any) => (
+      <Link key={item.id} href={`/categories/${item.id}`} className="w-[100%] inline-block">
         <div key={item.id} className='w-full rounded-[16px] bg-[white] flex justify-center items-center gap-4 p-3 md:h-[185px] h-[185px] sm:h-[210px]'>
               <Image
                 src={item.img}
